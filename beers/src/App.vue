@@ -1,29 +1,35 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+	<v-app dark id="app">
+    
+		<v-content>
+       <router-view></router-view>
+		</v-content>
+		<v-footer class="xs12 d-block pa-2 text-xs-center">
+			Beers &copy; {{ new Date().getFullYear() }}
+		</v-footer>
+	</v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  name: "App",
+  components: {
+     
+  },
+  data() {
+    return{
+
     }
-  }
-}
+  },
+  computed: {
+    
+  },
+
+};
+</script>
+
+<style lang="scss">
+  @import './styles/main.scss';
 </style>
