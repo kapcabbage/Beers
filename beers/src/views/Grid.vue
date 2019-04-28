@@ -63,13 +63,14 @@ export default {
       ],
       loading: true,
       pagination: {},
+      search: ""
 
     };
   },
   components: {
   },
   mounted() {
-   this.$store.dispatch(LOAD_BEERS);
+      this.$store.dispatch(LOAD_BEERS);
   },
   methods: {
     

@@ -10459,6 +10459,17 @@ table.v-table tfoot tr td {
   transform: translateY(100%);
 }
 
+.first {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.default {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
 .application {
   display: flex;
 }
@@ -17656,6 +17667,12 @@ table.v-table tfoot tr td {
 }
 .v-treeview-node__children {
   transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.last {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
 }
 
 .v-card {

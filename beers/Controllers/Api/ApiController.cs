@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using RestSharp;
 
 namespace Beers.Controllers.Api
@@ -10,14 +11,61 @@ namespace Beers.Controllers.Api
     [Route("[controller]/{action}")]
     public class ApiController : Controller
     {
+        private readonly IConfiguration _configuration;
+
+        public ApiController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         [HttpGet]
         public IActionResult GetBeers()
         {
-            var key = "b0cfacb3f403a62a63aef31bc01b45f1";
-            var client = new RestClient("https://sandbox-api.brewerydb.com/v2/");
-            var request = new RestRequest("beers", Method.GET);
-            request.AddParameter("key", "b0cfacb3f403a62a63aef31bc01b45f1"); 
+            var baseEndpoint = _configuration.GetSection("BreweryApi").GetSection("Base").Value;
+            var beersEndpoint = _configuration.GetSection("BreweryApi").GetSection("BeersEndpoint").Value;
+            var key = _configuration.GetSection("BreweryApi").GetSection("key").Value;
 
+            var client = new RestClient(baseEndpoint);
+            var request = new RestRequest(beersEndpoint, Method.GET);
+            request.AddParameter("key", key);
+            
+            // execute the request
+            IRestResponse response = client.Execute(request);
+            var content = response.Content; // raw content as string
+
+            return Ok(content);
+        }
+
+        [HttpGet]
+        public IActionResult GetMoreBeers(int pageNumber)
+        {
+            var baseEndpoint = _configuration.GetSection("BreweryApi").GetSection("Base").Value;
+            var beersEndpoint = _configuration.GetSection("BreweryApi").GetSection("BeersEndpoint").Value;
+            var key = _configuration.GetSection("BreweryApi").GetSection("key").Value;
+
+            var client = new RestClient(baseEndpoint);
+            var request = new RestRequest(beersEndpoint, Method.GET);
+            request.AddParameter("key", key);
+            request.AddParameter("p", pageNumber);
+
+            // execute the request
+            IRestResponse response = client.Execute(request);
+            var content = response.Content; // raw content as string
+
+            return Ok(content);
+        }
+
+        [HttpGet]
+        public IActionResult GetBeerByName(string name)
+        {
+            var baseEndpoint = _configuration.GetSection("BreweryApi").GetSection("Base").Value;
+            var beersEndpoint = _configuration.GetSection("BreweryApi").GetSection("BeersEndpoint").Value;
+            var key = _configuration.GetSection("BreweryApi").GetSection("key").Value;
+
+            var client = new RestClient(baseEndpoint);
+            var request = new RestRequest(beersEndpoint, Method.GET);
+            request.AddParameter("key", key);
+            request.AddParameter("name", name);
 
             // execute the request
             IRestResponse response = client.Execute(request);
