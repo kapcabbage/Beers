@@ -20,7 +20,6 @@ const actions = {
             {
 
             }).then(response=> {
-                console.log(response.data);
                 commit(SET_BEERS, response.data)
             }).catch(error => {
                 console.log(error);
@@ -34,7 +33,6 @@ const actions = {
                 pageNumber: data.pageNumber
             }
         }).then(response=> {
-            console.log(response.data);
             commit(SET_MORE_BEERS, response.data)
         }).catch(error => {
             console.log(error);
@@ -47,7 +45,6 @@ const actions = {
                 name: data.name
             }
         }).then(response=> {
-            console.log(response.data);
             commit(SET_BEER, response.data)
         }).catch(error => {
             console.log(error);
@@ -60,12 +57,8 @@ const mutations = {
         state.beers = payload.data;
         state.currentPage = payload.currentPage;
         state.totalPage = payload.numberOfPages
-        console.log("state");
-        console.log(state.currentPage);
    },
    [SET_BEER](state, payload) {
-       console.log("set beer");
-       console.log(payload);
         if(payload.data){
             state.beers = payload.data;
         }
@@ -79,9 +72,7 @@ const mutations = {
         state.beers = state.beers.concat(payload.data);
         state.currentPage = payload.currentPage;
         state.totalPage = payload.numberOfPages
-        console.log("state");
-        console.log(state.currentPage);
-},
+    },
 };
 
 const getters = {

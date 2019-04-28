@@ -39,7 +39,7 @@ export default {
   data () {
     return {
       showDetails: false,
-      lastScrollPosition: Number,
+      lastScrollPosition: 0,
     }
   },
   methods: {
@@ -50,7 +50,6 @@ export default {
           this.scrollTo(0);
       }
       else{
-          console.log(this.lastScrollPosition)
           this.scrollTo(this.lastScrollPosition);
       }
     },

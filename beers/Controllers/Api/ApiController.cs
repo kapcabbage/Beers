@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,9 +32,13 @@ namespace Beers.Controllers.Api
             
             // execute the request
             IRestResponse response = client.Execute(request);
-            var content = response.Content; // raw content as string
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var content = response.Content;
+                return Ok(content);
+            }
 
-            return Ok(content);
+            return StatusCode((int)response.StatusCode);
         }
 
         [HttpGet]
@@ -50,9 +55,13 @@ namespace Beers.Controllers.Api
 
             // execute the request
             IRestResponse response = client.Execute(request);
-            var content = response.Content; // raw content as string
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var content = response.Content;
+                return Ok(content);
+            }
 
-            return Ok(content);
+            return StatusCode((int)response.StatusCode);
         }
 
         [HttpGet]
@@ -69,9 +78,13 @@ namespace Beers.Controllers.Api
 
             // execute the request
             IRestResponse response = client.Execute(request);
-            var content = response.Content; // raw content as string
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var content = response.Content;
+                return Ok(content);
+            }
 
-            return Ok(content);
+            return StatusCode((int)response.StatusCode);
         }
     }
 }
