@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development --config webpack.dev.config.js --watch",
     "dev-build": "webpack --mode development --config webpack.dev.config.js --progress",
-    "test": "mochapack  --webpack-config webpack.dev.config.js \"tests/**/*.spec.js\"",
-    "test-jest": "jest"
+    "test-jest": "jest",
+    "test-jest-update-snap": "jest -u"
   },
   "jest": {
     "moduleFileExtensions": [

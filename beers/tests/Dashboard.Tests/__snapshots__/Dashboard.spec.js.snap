@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard.vue Does *Dashboard* page render correctly 1`] = `
+<v-container-stub
+  fill-height=""
+  fluid=""
+  grid-list-xl=""
+  tag="div"
+>
+  <v-layout-stub
+    row=""
+    tag="div"
+    wrap=""
+  >
+    <v-flex-stub
+      tag="div"
+      xs12=""
+    >
+      <h2
+        class="font-weight-thin display-3"
+      >
+        Dashboard
+      </h2>
+    </v-flex-stub>
+     
+    <v-flex-stub
+      tag="div"
+      xs12=""
+    >
+      <v-layout-stub
+        fill-height=""
+        tag="div"
+        wrap=""
+      >
+        <v-flex-stub
+          tag="div"
+          xs12=""
+        >
+          <calendar-card-stub
+            eventsmap="[object Object]"
+            today="2019-04-04"
+          >
+            <h4
+              class="title font-weight-light"
+            >
+              Calendar
+            </h4>
+             
+            <p
+              class="category d-inline-flex font-weight-light"
+            >
+              <v-icon-stub
+                color="green"
+                small=""
+              >
+                
+							-arrow-up
+							
+              </v-icon-stub>
+               
+              <span
+                class="green--text"
+              >
+                Available
+              </span>
+               
+							spots overview
+						
+            </p>
+             
+            <template>
+              <v-icon-stub
+                class="mr-2"
+                small=""
+              >
+                
+							mdi-clock-outline
+							
+              </v-icon-stub>
+               
+              <span
+                class="caption grey--text font-weight-light"
+              >
+                updated 4 minutes ago
+              </span>
+            </template>
+          </calendar-card-stub>
+        </v-flex-stub>
+      </v-layout-stub>
+    </v-flex-stub>
+     
+    <v-flex-stub
+      sm4=""
+      tag="div"
+      xs12=""
+    >
+      <card-stub
+        color="info"
+        elevation="10"
+        icon="directions_car"
+        offset="24"
+        subicon="update"
+        subtext="Just Updated"
+        title="Available spots/Month"
+        value="+245"
+      />
+    </v-flex-stub>
+  </v-layout-stub>
+</v-container-stub>
+`;

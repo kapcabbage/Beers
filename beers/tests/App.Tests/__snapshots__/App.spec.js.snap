@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App.vue Does *App* page render correctly 1`] = `
+<v-app-stub
+  dark="true"
+  id="app"
+>
+  <navigationdrawer-stub
+    computeddrawer="true"
+  />
+   
+  <v-content-stub
+    tag="main"
+    transition="slide-x-transition"
+  >
+    <router-view-stub
+      name="default"
+    />
+  </v-content-stub>
+   
+  <v-footer-stub
+    class="xs12 d-block pa-2 text-xs-center"
+    height="32"
+  >
+    
+			Arvato © 2019
+		
+  </v-footer-stub>
+</v-app-stub>
+`;

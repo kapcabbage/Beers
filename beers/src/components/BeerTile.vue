@@ -14,15 +14,20 @@
                   ></v-img>
                 </v-list-tile-avatar>
 
-                <span class="font-weight-bold">{{ beer.nameDisplay }}</span>
+                <span class="font-weight-bold">{{ showDetails ? beer.nameDisplay : beer.nameDisplay.substring(0, 43) }}</span>
               </v-card-title>
               <v-spacer/>
-              <v-btn icon @click="toggleDetails()">
+              <v-btn outline @click="toggleDetails()">
                 <v-icon>{{ showDetails ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+                {{ showDetails ? 'COLLAPSE DETAILS' : 'EXPAND DETAILS'}}
               </v-btn>
-                <v-card-text v-show="showDetails" v-if="beer.style">
-                   {{beer.style.description}}
-                </v-card-text>
+               <v-card-title primary-title v-show="showDetails" v-if="beer.style">
+                <div>
+                    <h3 class="headline mb-0">About</h3>
+                    <div> {{ beer.style.description }} </div>
+                </div>
+                </v-card-title>
+                
             </v-card> 
           </v-flex>
 </template>

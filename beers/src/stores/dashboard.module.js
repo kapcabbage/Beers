@@ -8,13 +8,14 @@ window.ajax = axios.create({});
 
 const state = {
     beers:[],
-    currentPage: Number,
-    totalPage: Number
+    currentPage: 0,
+    totalPage: 0
 };
 
 const actions = {
     [LOAD_BEERS]({state, commit},data) {
-        if(state.beers.length === 0){
+        
+        if(state.currentPage === 0){
             window.ajax.get('/api/GetBeers',
             {
 
