@@ -1,4 +1,6 @@
 # Beers
+Coding assignment
+
 Cool beer-oriented website build on VueJs.
 
 Two views featured: 
